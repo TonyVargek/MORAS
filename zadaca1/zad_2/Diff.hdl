@@ -1,0 +1,57 @@
+CHIP Diff{
+    IN a[16], b[16];
+    OUT out[16];
+
+    PARTS:
+    Xor(a=a[0], b=b[0], out=xor0);
+    Xor(a=a[1], b=b[1], out=xor1);
+    Xor(a=a[2], b=b[2], out=xor2);
+    Xor(a=a[3], b=b[3], out=xor3);
+    Xor(a=a[4], b=b[4], out=xor4);
+    Xor(a=a[5], b=b[5], out=xor5);
+    Xor(a=a[6], b=b[6], out=xor6);
+    Xor(a=a[7], b=b[7], out=xor7);
+    Xor(a=a[8], b=b[8], out=xor8);
+    Xor(a=a[9], b=b[9], out=xor9);
+    Xor(a=a[10], b=b[10], out=xor10);
+    Xor(a=a[11], b=b[11], out=xor11);
+    Xor(a=a[12], b=b[12], out=xor12);
+    Xor(a=a[13], b=b[13], out=xor13);
+    Xor(a=a[14], b=b[14], out=xor14);
+    Xor(a=a[15], b=b[15], out=xor15);
+
+    Extend1To16(in=xor0, out=out0);
+    Extend1To16(in=xor1, out=out1);
+    Extend1To16(in=xor2, out=out2);
+    Extend1To16(in=xor3, out=out3);
+    Extend1To16(in=xor4, out=out4);
+    Extend1To16(in=xor5, out=out5);
+    Extend1To16(in=xor6, out=out6);
+    Extend1To16(in=xor7, out=out7);
+    Extend1To16(in=xor8, out=out8);
+    Extend1To16(in=xor9, out=out9);
+    Extend1To16(in=xor10, out=out10);
+    Extend1To16(in=xor11, out=out11);
+    Extend1To16(in=xor12, out=out12);
+    Extend1To16(in=xor13, out=out13);
+    Extend1To16(in=xor14, out=out14);
+    Extend1To16(in=xor15, out=out15);
+
+
+    Add16(a=out0, b=out1, out=outadd0);
+    Add16(a=outadd0, b=out2, out=outadd1);
+    Add16(a=outadd1, b=out3, out=outadd2);
+    Add16(a=outadd2, b=out4, out=outadd3);
+    Add16(a=outadd3, b=out5, out=outadd4);
+    Add16(a=outadd4, b=out6, out=outadd5);
+    Add16(a=outadd5, b=out7, out=outadd6);
+    Add16(a=outadd6, b=out8, out=outadd7);
+    Add16(a=outadd7, b=out9, out=outadd8);
+    Add16(a=outadd8, b=out10, out=outadd9);
+    Add16(a=outadd9, b=out11, out=outadd10);
+    Add16(a=outadd10, b=out12, out=outadd11);
+    Add16(a=outadd11, b=out13, out=outadd12);
+    Add16(a=outadd12, b=out14, out=outadd13);
+    Add16(a=outadd13, b=out15, out=outadd14);
+    Add16(a=outadd14, b=false, out=out);
+}
