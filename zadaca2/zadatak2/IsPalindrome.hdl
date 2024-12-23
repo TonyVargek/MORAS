@@ -1,0 +1,16 @@
+CHIP IsPalindrome{
+    IN in[16];
+    OUT out[1];
+
+    PARTS:
+    Or(a=in[0], b=in[15], out=check0);
+    Eq(a=in[1], b=in[14], out=check1);
+    Eq(a=in[2], b=in[13], out=check2);
+    Eq(a=in[3], b=in[12], out=check3);
+    Eq(a=in[4], b=in[11], out=check4);
+    Eq(a=in[5], b=in[10], out=check5);
+    Eq(a=in[6], b=in[9], out=check6);
+    Eq(a=in[7], b=in[8], out=check7);
+
+    And8Way(a=check0, b=check1, c=check2, d=check3, e=check4, f=check5, g=check6, h=check7, out=out);
+}
