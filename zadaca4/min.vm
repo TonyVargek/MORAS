@@ -1,0 +1,40 @@
+push constant 3
+push constant 5
+push constant 4
+call calcMin 3
+
+function calcMin 0
+push argument 0
+push argument 1
+lt
+if-goto FIRST-LAST
+goto SECOND-LAST
+
+label FIRST-LAST
+push argument 0
+push argument 2
+lt
+if-goto ZERO
+goto SECOND
+
+label SECOND-LAST
+push argument 1
+push argument 2
+lt
+if-goto FIRST
+goto SECOND
+
+label ZERO
+push argument 0
+goto FINISH
+
+label FIRST
+push argument 1
+goto FINISH
+
+label SECOND
+push argument 2
+goto FINISH
+
+label FINISH
+return

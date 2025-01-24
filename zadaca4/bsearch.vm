@@ -1,0 +1,92 @@
+function BinarySearch 3
+
+push constant 0
+pop local 0
+
+push argument 1
+push constant 1
+sub
+pop local 1
+
+label LOOP_START
+push local 0
+push local 1
+gt
+if-goto END_SEARCH
+
+push local 0
+push local 1
+add
+push constant 2
+call Divide 2
+pop local 2
+
+push local 2
+push argument 0
+add
+
+pop pointer 1
+push that 0
+push argument 2
+eq
+if-goto FOUND
+
+push local 2
+push argument 0
+add
+pop pointer 1
+push that 0
+push argument 2
+gt
+if-goto UPPER
+
+goto LOWER
+
+label END_SEARCH
+push constant -1
+return
+
+label FOUND
+push local 2
+return
+
+label UPPER
+push local 2
+push constant 1
+sub
+pop local 1
+goto LOOP_START
+
+label LOWER
+push local 2
+push constant 1
+add
+pop local 0
+goto LOOP_START
+
+function Divide 1
+
+push constant 0
+pop local 0
+
+label DIV_LOOP
+push argument 0
+push argument 1
+lt
+if-goto DIV_END
+
+push argument 0
+push argument 1
+sub
+pop argument 0
+
+push local 0
+push constant 1
+add
+pop local 0
+
+goto DIV_LOOP
+
+label DIV_END
+push local 0
+return

@@ -1,0 +1,19 @@
+push constant 5
+push constant 2
+call mod 2
+
+function mod 0
+
+label loop_s
+push argument 0
+push argument 1
+lt
+if-goto END
+push argument 0
+push argument 1
+sub
+pop argument 0
+goto loop_s
+label END
+push argument 0
+return
